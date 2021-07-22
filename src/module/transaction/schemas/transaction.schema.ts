@@ -7,7 +7,7 @@ export type TransactionDocument = Transaction & Document;
 
 @Schema()
 export class Transaction {
-  @Prop({ required: true })
+  @Prop({ required: false })
   originID: AccountDto;
   @Prop({ required: true })
   destinationID: AccountDto;

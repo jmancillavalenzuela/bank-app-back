@@ -14,7 +14,7 @@ export class TransactionDto {
   })
   @IsString()
   @IsNotEmpty()
-  originID: AccountDto;
+  originID?: AccountDto;
 
   @ApiProperty({
     title: 'Destino',
