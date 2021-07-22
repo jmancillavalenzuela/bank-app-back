@@ -44,6 +44,23 @@ export class AccountService {
     return Account;
   }
 
+  async findByRut(rut: string): Promise<AccountDto> {
+    const Account = await this.accountModel.findOne({
+      rut: rut,
+      status: ENTITY_STATUS.ENABLED,
+    });
+    if (Account === undefined || Account === null) {
+      throw new HttpException(
+        {
+          status: HttpStatus.NOT_FOUND,
+          error: 'no se encuentra el objeto indicado',
+        },
+        404,
+      );
+    }
+    return Account;
+  }
+
   async update(AccountDto: AccountDto) {
     try {
       const Account = await this.accountModel.findById(AccountDto._id); // revisar

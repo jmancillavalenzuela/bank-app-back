@@ -8,9 +8,9 @@ export type AccountDocument = Account & Document;
 export class Account {
   @Prop({ required: true })
   name: string;
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   rut: string;
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   mail: string;
   @Prop({ required: true })
   phoneNumber: number;

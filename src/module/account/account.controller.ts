@@ -36,6 +36,11 @@ export class AccountController {
     return this.AccountService.findById(id);
   }
 
+  @Get(':rut')
+  findByRut(@Param('rut') rut: string): Promise<AccountDto> {
+    return this.AccountService.findByRut(rut);
+  }
+
   @Put()
   async update(@Body() AccountDto: AccountDto): Promise<AccountDto> {
     try {
