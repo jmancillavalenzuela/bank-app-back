@@ -36,7 +36,7 @@ export class AccountController {
     return this.AccountService.findById(id);
   }
 
-  @Get(':rut')
+  @Get('/rut/:rut')
   findByRut(@Param('rut') rut: string): Promise<AccountDto> {
     return this.AccountService.findByRut(rut);
   }
